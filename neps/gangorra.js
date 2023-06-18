@@ -1,7 +1,7 @@
 
 var input = require('fs').readFileSync('stdin', 'utf8')
 input = input.split(' ')
-console.log(input)
+//console.log(input)
 
 var p1 = Number(input().shift())
 var c1 = Number(input().shift())
