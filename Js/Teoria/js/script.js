@@ -1,22 +1,51 @@
-var input = require('fs').readFileSync('stdin', 'utf8')
-input = Number(input)
-//console.log(typeof(input))
-var aumento =0
-if (input>=0 && input<=400){
-  aumento = 0.15
-}else if(input>400 && input<=800){
-  aumento = 0.12
-}else if(input>800 && input<=1200){
-    aumento = 0.10
-}else if(input>1200 && input<=2000){
-    aumento =0.07
-}else if(input>2000){
-    aumento = 0.04
-}
-var ganho = input*aumento
-var novo = ganho+input
+const data = new Date(2023,6,21,1,0)
+var dia = data.getDay()
 
-aumento = parseInt(aumento*100)
-console.log(`Novo salario: ${novo.toFixed(2)}`)
-console.log(`Reajuste ganho: ${ganho.toFixed(2)}`)
-console.log(`Em percentual: ${aumento} %`)
+
+// if( v===0){
+//   t= 'sexta feira';
+// } else if ( v===1){
+//     t='sabado'
+// } else if(v===2){
+//   t='domingo'
+// }else if(v===3){
+//   t='segunda feira'
+// }else if(v===4){
+//   t='terca feira'
+// }else if(v===5){
+//   t='quarta feira'
+// }else{
+//   t='quinta feira'
+// }
+// console.log(t)
+console.log(dia)
+let texto;
+switch(dia){
+    case 0:
+        texto = 'Sexta'
+        break;
+    case 1:
+        texto='sabado'
+        break;
+    case 2:
+        texto='dom'
+        break;
+    case 3:
+        texto='seg'
+        break;
+    case 4:
+        texto='ter'
+        break;   
+    case 5:
+        texto='quarta'
+        break;
+    case 6:
+        texto='quinta'
+        console.log('entrei')
+        break;
+    default: 
+        dia = 'dia invalido'
+        break;
+    }
+
+console.log(dia,texto)
