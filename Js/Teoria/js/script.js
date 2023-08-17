@@ -1,51 +1,14 @@
-const data = new Date(2023,6,21,1,0)
-var dia = data.getDay()
+let raceNumber = Math.floor(Math.random() * 1000);
+let runRegistred = true;
+let runnerAge = 18;
+if (runnerAge > 18 && runRegistred) {
+  raceNumber = receNumber + 1000;
+} 
+if (runRegistred && runRegistred > 18) {
+  console.log(`the race will starts at 9:30am with & ${raceNumber}`);
+} else if (runnerAge > 18 && runRegistred === false){
+  console.log(`the late race will starts at 11:00am with & ${raceNumber}`);
+}else if  (runnerAge < 18 ){
+  console.log(`the race for young will starts at 12:30pm with && ${raceNumber}`)
+} 
 
-
-// if( v===0){
-//   t= 'sexta feira';
-// } else if ( v===1){
-//     t='sabado'
-// } else if(v===2){
-//   t='domingo'
-// }else if(v===3){
-//   t='segunda feira'
-// }else if(v===4){
-//   t='terca feira'
-// }else if(v===5){
-//   t='quarta feira'
-// }else{
-//   t='quinta feira'
-// }
-// console.log(t)
-console.log(dia)
-let texto;
-switch(dia){
-    case 0:
-        texto = 'Sexta'
-        break;
-    case 1:
-        texto='sabado'
-        break;
-    case 2:
-        texto='dom'
-        break;
-    case 3:
-        texto='seg'
-        break;
-    case 4:
-        texto='ter'
-        break;   
-    case 5:
-        texto='quarta'
-        break;
-    case 6:
-        texto='quinta'
-        console.log('entrei')
-        break;
-    default: 
-        dia = 'dia invalido'
-        break;
-    }
-
-console.log(dia,texto)

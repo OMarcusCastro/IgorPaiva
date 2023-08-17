@@ -48,3 +48,12 @@ var cor_padrao = cor_usuario || "Preto";
 
 console.log(resultado);
 ```
+
+## Object Date
+
+```js
+const data = new Date(2023, 6, 22, 1, 0);
+const v = data.getUTCDay();
+console.log(v);
+console.log(data.toString());
+```

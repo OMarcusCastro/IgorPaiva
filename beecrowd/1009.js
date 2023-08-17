@@ -1,16 +1,14 @@
 
-var input = require('fs').readFileSync('/dev/stdin', 'utf8')
+var input = require('fs').readFileSync('stdin', 'utf8')
 input = input.split('\n')
 
+var nome = input[0];
+var fixo = Number(input[1]);
+var vendas = Number(input[2]);
+var total = fixo + vendas * 0.15;
 
+console.log(`TOTAL = R$ ${total.toFixed(2)}`);
 
-var nome = input.shift();
-var fixo = Number(input.shift());
-var vendas = Number(input.shift());
-
-var mensal = fixo+vendas*0.15
-
-console.log(`TOTAL = R$ ${mensal.toFixed(2)}`)
 
 
 

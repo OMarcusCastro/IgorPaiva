@@ -100,8 +100,8 @@ console.log(num1);
 ## Mais sobre string -Caso Particular de Array(array de caracteres)
 
 - Comportamento de vetor index
-- return element of index `charAt[val]`
-- return index da `indexOf(ele)`
+- return element of index `.charAt[val]`
+- return index da `.indexOf(ele)`
 - return index da `indexOf(ele,begin)`
 - return substring `.slice(begin,end)`
 - return size `.lenght`
