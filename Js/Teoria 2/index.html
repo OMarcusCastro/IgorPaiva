@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Bancário</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Sistema Bancário</h1>
+
+    <!-- Formulário para cadastrar clientes -->
+    <div>
+        <input type="text" id="clienteNome" >
+        <input type="number" id="clienteSaldo" >
+        <!-- <input type="email" id="clienteEmail" >
+        <input type="password" id="clienteSenha" > -->
+        <button  onclick="cadastrarCliente()">Cadastrar Cliente</button>
+    </div>
+
+    <!-- Formulário para operações bancárias -->
+    <div>
+
+        <!-- <label for="selecionarCliente">Selecione o Cliente:</label> -->
+        <select id="selecionarCliente"></select>
+        <!-- <label for="valorOperacao">Valor da Operação:</label> -->
+        <input type="number" id="valorOperacao" required>
+        <button type="button" onclick="realizarDeposito()">Depósito</button>
+        <button type="button" onclick="realizarSaque()">Saque</button>
+        <button type="button" onclick="realizarTransferencia()">Transferência</button>
+    
+        
+    </div>
+
+    <!-- Exibição de saldo -->
+    <p id="saldoAtual"></p>
+
+    <!-- Lista de contas cadastradas -->
+    <h2>Contas Cadastradas</h2>
+    <ul id="listaContas"></ul>
+
+    <script src="teste.js">
+        // Seu código JavaScript aqui
+    </script>
+</body>
+</html>

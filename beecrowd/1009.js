@@ -1,5 +1,5 @@
 
-var input = require('fs').readFileSync('stdin', 'utf8')
+var input = require('fs').readFileSync('/dev/stdin', 'utf8')
 input = input.split('\n')
 
 var nome = input[0];

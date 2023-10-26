@@ -1,5 +1,7 @@
 # Teoria
 
+\
+
 ## console.log
 
 - console: e um objeto
@@ -137,3 +139,30 @@
 - sintaxe : `for(inicializacao; condicao de parada; upadater){}`
 
 - exemplo : `for(let i = 0; i < 10 ; i+=2)`.
+
+```
+var cod = Number(input[0]);
+var qtd = Number(input[1]);
+var preco = 0;
+
+if(cod === 1){
+    preco = 4;
+}
+else if(cod === 2){
+    preco = 4.5;
+}
+else if(cod === 3){
+    preco = 5;
+}
+else if(cod === 4){
+    preco = 2;
+}
+else if(cod === 5){
+    preco = 1.5;
+}
+var total = qtd * preco;
+console.log(`Total : R$ ${total.toFixed(2)}`);
+
+
+
+```

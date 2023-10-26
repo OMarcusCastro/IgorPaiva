@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Contas Bancárias</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Gerenciamento de Contas Bancárias</h1>
+    <div>
+        <h2>Cadastrar Cliente</h2>
+        <input type="text" id="clienteNome" placeholder="Nome do Cliente">
+        <input type="number" id="clienteSaldo" placeholder="Saldo Inicial">
+        <button onclick="cadastrarCliente()">Cadastrar</button>
+    </div>
+    <div>
+        <h2>Realizar Operações</h2>
+        <select id="selecionarCliente"></select>
+        <input type="number" id="valorOperacao" placeholder="Valor">
+        <button onclick="realizarDeposito()">Depósito</button>
+        <button onclick="realizarSaque()">Saque</button>
+        <select id="destinatarioTransferencia"></select>
+        <button onclick="realizarTransferencia()">Transferência</button>
+    </div>
+    <div>
+        <h2>Saldo Atual</h2>
+        <p id="saldoAtual"></p>
+    </div>
+    <div>
+        <h2>Dados das Contas</h2>
+        <button onclick="exibirDadosContas()">Exibir Dados das Contas</button>
+        <ul id="listaContas"></ul>
+    </div>
+
+    <script  src = 'teste.js'></script>
+</body>
+</html>
