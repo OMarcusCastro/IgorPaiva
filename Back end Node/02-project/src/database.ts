@@ -1,13 +1,17 @@
 /* eslint-disable prettier/prettier */
-import { knex as setupknex } from 'knex'
+import {Knex ,knex as setupKnex} from 'knex'
 
-export const config = {
+export const config:Knex.Config = {
   client: 'sqlite3',
   connection: {
-    filename: './tmp/app.db',
+    filename: './db/app.db',
   },
-  useNullAsDefault:true
+  useNullAsDefault:true,
+  migrations:{
+    extension:'ts',
+    directory:"./db/migrations"
+  },
 
 }
 
-export const knex = setupknex(config)
+export const knex = setupKnex(config)
