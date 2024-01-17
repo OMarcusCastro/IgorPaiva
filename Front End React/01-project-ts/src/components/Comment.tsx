@@ -1,9 +1,15 @@
-import {LinuxLogo, ThumbsUp, Trash} from '@phosphor-icons/react'
+import {ThumbsUp, Trash} from '@phosphor-icons/react'
 import styles from "./Comment.module.css"
 import { Avatar } from './Avatar'
 import { useState } from 'react'
 
-export function Comment({content,onDeleteComment}){
+
+interface CommentProps{
+    content:string
+    onDeleteComment:(coment:string)=>void
+}
+
+export function Comment({content,onDeleteComment}:CommentProps){
 
     const [likeCount,setLikeCount]=useState(0)
 
@@ -20,7 +26,8 @@ export function Comment({content,onDeleteComment}){
    
     return (
         <div className={styles.comment}>
-            <Avatar link='https://avatars.githubusercontent.com/u/123670251?s=400&u=e5737fa43123a91377d0cd06eead7b3b6363bd9c&v=4'/>
+            <Avatar
+             src='https://avatars.githubusercontent.com/u/123670251?s=400&u=e5737fa43123a91377d0cd06eead7b3b6363bd9c&v=4'/>
             <div className={styles.commentBox}>
 
                 <div className={styles.commentContent}>

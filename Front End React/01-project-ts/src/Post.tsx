@@ -1,15 +1,34 @@
 import styles from "./Post.module.css"
-import { Comment } from "../components/Comment"
-import { Avatar } from "./../components/Avatar"
-import { useState } from "react"
-import {format, formatDistanceToNow} from 'date-fns'
+import { Comment } from "./components/Comment"
+import { Avatar } from "./components/Avatar"
+import { ChangeEvent, FormEvent, InvalidEvent, useState } from "react"
+import {format, formatDistance, formatDistanceToNow} from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
 
+interface Author{
+    name:string
+    role:string
+    avatarUrl:string
+}
+
+interface Content{
+    type: 'paragraph' | 'link'
+    content:string
+}
+
+export interface PostType{
+    id: number
+    author:Author
+    content:Content[]
+    publishedAt:Date
+}
+
+interface PostProps{
+    post:PostType
+}
 
 
-
-// eslint-disable-next-line react/prop-types
-export function Post({author,content,publishedAt}){
+export function Post({post}:PostProps){
     
     const [comments,setComments]=useState([
         'brewdog','fluminense vai toma no cu'
@@ -20,26 +39,26 @@ export function Post({author,content,publishedAt}){
     const [newCommentText,setNewCommentText]=useState('')
     const isNewCommentEmpty = newCommentText.length === 0
 
-    const publishedDateFormated = format(publishedAt,"d 'de' LLLL 'às' HH:mm 'h'",{locale:ptBR})
+    const publishedDateFormated = format(post.publishedAt,"d 'de' LLLL 'às' HH:mm 'h'",{locale:ptBR})
     
-    const publishedDateRelativeToNow = formatDistanceToNow(publishedAt,{
+    const publishedDateRelativeToNow = formatDistanceToNow(post.publishedAt,{
         locale:ptBR,
         addSuffix:true
     })
 
-    function handleCreateNewCommet(){
+    function handleCreateNewCommet(event:FormEvent){
         event.preventDefault()
         setComments([...comments,newCommentText])
         setNewCommentText('')
     }
 
-    function handleNewCommentChange(){
+    function handleNewCommentChange(event: ChangeEvent<HTMLTextAreaElement>){
         event.target.setCustomValidity('')
         setNewCommentText(event.target.value)
 
     }
 
-    function deleteComment(commentToDelete){
+    function deleteComment(commentToDelete:string){
         //imutabilidade - > voce nao muda uma variaval mas cria outra nova(um novo local de memoria com o novo estado)
         const commentsWithoutDeletedOne =comments.filter(comment=>{
             return comment !== commentToDelete
@@ -48,7 +67,7 @@ export function Post({author,content,publishedAt}){
         
     }
     
-    function handleNewCommentInvalid(){
+    function handleNewCommentInvalid(event:InvalidEvent<HTMLTextAreaElement>){
         event.target.setCustomValidity('Esse campo e obrigatorio!')
         console.log(event)
     }
@@ -58,17 +77,17 @@ export function Post({author,content,publishedAt}){
             <header>                                       
                 
                 <div className={styles.author}>
-                    <Avatar hasBorder link={author.avatarUrl}/>
+                    <Avatar hasBorder src={post.author.avatarUrl}/>
                        <div className={styles.authorInfo}>
-                        <strong>{author.name}</strong>
-                        <span>{author.role}</span>
+                        <strong>{post.author.name}</strong>
+                        <span>{post.author.role}</span>
                     </div>
                 </div>
-                <time title={publishedDateFormated} dateTime={publishedAt.toISOString()}>{publishedDateRelativeToNow}</time>
+                <time title={publishedDateFormated} dateTime={post.publishedAt.toISOString()}>{publishedDateRelativeToNow}</time>
             </header>
             <div className={styles.content}>
                 {
-                    content.map(line=>{
+                    post.content.map(line=>{
                         if(line.type ==='paragraph'){
                             return(
                                 <p key={line.content}>{line.content}</p>
@@ -97,7 +116,7 @@ export function Post({author,content,publishedAt}){
                 
                 
                 <footer>
-                    <button type="submit" disabled={false}>Publicar</button>
+                    <button type="submit" disabled={isNewCommentEmpty}>Publicar</button>
                 </footer>
             </form>
             <div className="styles.commentList">

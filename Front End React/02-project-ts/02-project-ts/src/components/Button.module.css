@@ -1,0 +1,24 @@
+.button{
+    width:100px;
+    heiht:40px;
+}
+
+.primary{
+    background:purple;
+}
+
+.secondary{
+    background:green;
+}
+
+.danger{
+    background:white;
+}
+
+.neutral{
+    background:blue;
+}
+
+.sucess{
+    background:yellow;
+}
